@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <h2>Widgets:</h2>
-      {widgets.map(widget => {
+      {widgets.filter((widegt) => genericSearch(widget, query)).map(widget => {
         return (
           <h3>{widget.title}</h3>
         )
