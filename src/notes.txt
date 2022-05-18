@@ -1,0 +1,3 @@
+NOTES
+
+1. Search functionality is built across multiple pages and for variety of data types in large applications.
