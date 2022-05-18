@@ -7,6 +7,14 @@ export interface ISearchInputProps {
 
 export function SearchInput(props: ISearchInputProps) {
   const { setSearchQuery } = props;
+  const [query, setQuery] = useState<string>("")
+  const debounceQuery = useDebounce(query, 250)
+
+  useEffect(() => {
+    if (debounceQuery !== "") {
+        setSearchQuery(debounceQuery)
+    }
+  })
 
   return (
     <>
