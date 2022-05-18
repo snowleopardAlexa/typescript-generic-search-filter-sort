@@ -1,13 +1,14 @@
 import './App.css';
 import people from './mock-data/people';
 import widgets from './mock-data/widgets';
+import genericSearch from './utils/genericSearch';
 
 function App() {
   const query = ""
   return (
     <div className="App">
       <h2>Widgets:</h2>
-      {widgets.filter((widegt) => genericSearch(widget, ["title", "description"], query)).map(widget => {
+      {widgets.filter((widget) => genericSearch(widget, ["title", "description"], query, false)).map(widget => {
         return (
           <h3>{widget.title}</h3>
         )
