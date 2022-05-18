@@ -1,3 +1,5 @@
 NOTES
 
 1. Search functionality is built across multiple pages and for variety of data types in large applications.
+
+2. Search generic function has an issue -> performance issues when user types a lot of letters inside search box. This is why we use useDebounce React Hook to reduce search onChange Event Load 
