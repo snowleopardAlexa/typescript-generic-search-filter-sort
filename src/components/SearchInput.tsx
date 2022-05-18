@@ -14,7 +14,7 @@ export function SearchInput(props: ISearchInputProps) {
     if (debounceQuery !== "") {
         setSearchQuery(debounceQuery)
     }
-  })
+  }, [debounceQuery, setSearchQuery])
 
   return (
     <>
