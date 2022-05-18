@@ -29,7 +29,6 @@ export function SearchInput(props: ISearchInputProps) {
         placeholder="Search..."
         aria-label="Search"
         onChange={(event) => {
-            console.log('firing!')
             setSearchQuery(event.target.value)
         }}
       />
