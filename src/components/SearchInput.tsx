@@ -1,5 +1,6 @@
 // react pure function component
-import * as React from "react";
+import { useState, useEffect} from "react";
+import useDebounce from "../hooks/useDebounce";
 
 export interface ISearchInputProps {
   setSearchQuery: (searchQuery: string) => void;
@@ -8,13 +9,13 @@ export interface ISearchInputProps {
 export function SearchInput(props: ISearchInputProps) {
   const { setSearchQuery } = props;
   const [query, setQuery] = useState<string>("")
-  const debounceQuery = useDebounce(query, 250)
+  const debouncedQuery = useDebounce(query, 250)
 
   useEffect(() => {
-    if (debounceQuery !== "") {
-        setSearchQuery(debounceQuery)
+    if (debouncedQuery !== "") {
+        setSearchQuery(debouncedQuery)
     }
-  }, [debounceQuery, setSearchQuery])
+  }, [debouncedQuery, setSearchQuery])
 
   return (
     <>
