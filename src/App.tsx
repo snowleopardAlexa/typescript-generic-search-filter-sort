@@ -14,7 +14,7 @@ function App() {
         )
       })}
       <h2>People:</h2>
-      {people.map(person => {
+      {people.filter((person) => genericSearch(person, ["firstName", "lastName"], query, false)).map(person => {
         return (
           <h3>{person.firstName} {person.lastName}</h3>
         )
