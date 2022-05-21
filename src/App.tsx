@@ -21,6 +21,9 @@ function App() {
         .filter((widget) =>
           genericSearch(widget, ["title", "description"], query, false)
         )
+        .sort((a, b) => {
+          genericSort(a, b, "title")
+        })
         .map((widget) => {
           return <h3>{widget.title}</h3>;
         })}
@@ -29,9 +32,6 @@ function App() {
         .filter((person) =>
           genericSearch(person, ["firstName", "lastName"], query, false)
         )
-        .sort((a, b) => {
-          genericSort(a, b, "title")
-        })
         .map((person) => {
           return (
             <h3>
