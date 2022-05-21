@@ -21,6 +21,7 @@ function App() {
         .filter((widget) =>
           genericSearch(widget, ["title", "description"], query, false)
         )
+        // comparision function 
         .sort((a, b) => {
           genericSort(a, b, "title")
         })
