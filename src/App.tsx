@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 import { SearchInput } from "./components/SearchInput";
+import IProperty from "./interfaces/IProperty";
+import IWidget from "./interfaces/IWidget";
 import people from "./mock-data/people";
 import widgets from "./mock-data/widgets";
 import genericSearch from "./utils/genericSearch";
@@ -8,7 +10,8 @@ import genericSort from "./utils/genericSort";
 
 function App() {
   const [query, setQuery] = useState<string>("");
-  const [property, setProperty] = useState<IProperty>("title")
+  const [widgetSortProperty, setWidgetSortProperty] = useState<IProperty<IWidget>>({ property: "title" })
+  const [peopleSortProperty, setPeopleSortProperty] = useState<IProperty<IPeople>>({ property: "people"})
 
   return (
     <div className="App">
