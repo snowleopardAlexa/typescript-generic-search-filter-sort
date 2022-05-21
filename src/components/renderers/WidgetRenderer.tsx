@@ -12,8 +12,8 @@ export function WidgetRenderer (props: IWidget) {
                   <p className="card-text font-italic">Rating: {rating}/10</p>
               </div>
               <div className="card-footer text-muted text-right">
-                  <span className="float-left">{id}</span> 
-                  created:&nbsp; <Moment fromNow date={created} />
+                  <span className="float-left">{id} &nbsp;</span> 
+                  created:&nbsp; <Moment fromNow date={created} />&nbsp;
                   updated:&nbsp; <Moment fromNow date={updated} />
               </div>
           </div>
