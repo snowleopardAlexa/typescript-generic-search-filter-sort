@@ -8,6 +8,7 @@ import genericSort from "./utils/genericSort";
 
 function App() {
   const [query, setQuery] = useState<string>("");
+  const [property, setProperty] = useState<IProperty>("title")
 
   return (
     <div className="App">
@@ -24,7 +25,7 @@ function App() {
         )
         // comparision function 
         .sort((a, b) => 
-          genericSort(a, b, "title")
+          genericSort(a, b, property)
         )
         .map((widget) => {
           return <h3>{widget.title}</h3>;
