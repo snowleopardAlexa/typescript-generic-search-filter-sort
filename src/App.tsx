@@ -24,7 +24,9 @@ function App() {
         }}
       />
       <h2>Widgets:</h2>
-      <Sorters object={widgets[0]} />
+      <Sorters setProperty={(property) => {
+        setWidgetSortProperty({property})
+      }} object={widgets[0]} />
       {widgets
         .filter((widget) =>
           genericSearch(widget, ["title", "description"], query, false)
