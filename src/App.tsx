@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { SearchInput } from "./components/SearchInput";
+import IPerson from "./interfaces/IPerson";
 import IProperty from "./interfaces/IProperty";
 import IWidget from "./interfaces/IWidget";
 import people from "./mock-data/people";
