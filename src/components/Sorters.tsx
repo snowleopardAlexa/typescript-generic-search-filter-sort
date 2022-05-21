@@ -14,10 +14,13 @@ export function Sorters<T>(props: ISortersProps<T>) {
            id="sorters"
            className="custom-select"
            onChange={(event) => {
-             setProperty({
-                 property: event.target.value as any,
-                 isDescending:
+           const values = event.target.value.split("-")
+           if (values.length === 2) {
+            setProperty({
+                property: event.target.value as any,
+                isDescending: values[1] === "true"
              })
+            }
            }}>
            {Object.keys(object).map((key) => {
                return (
