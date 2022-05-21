@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import { WidgetRenderer } from "./components/renderers/WidgetRenderer";
 import { SearchInput } from "./components/SearchInput";
 import { Sorters } from "./components/Sorters";
 import IPerson from "./interfaces/IPerson";
@@ -36,7 +37,7 @@ function App() {
           genericSort(a, b, widgetSortProperty.property)
         )
         .map((widget) => {
-          return <h3>{widget.title}</h3>;
+          return <WidgetRenderer {...widget} />;
         })}
       <h2>People:</h2>
       <Sorters setProperty={(property) => {
