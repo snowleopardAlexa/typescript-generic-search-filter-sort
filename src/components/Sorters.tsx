@@ -17,7 +17,7 @@ export function Sorters<T>(props: ISortersProps<T>) {
            const values = event.target.value.split("-")
            if (values.length === 2) {
             setProperty({
-                property: event.target.value as any,
+                property: values[0] as any,
                 isDescending: values[1] === "true"
              })
             }
@@ -25,10 +25,10 @@ export function Sorters<T>(props: ISortersProps<T>) {
            {Object.keys(object).map((key) => {
                return (
                 <>  
-                <option key={`${key} - true`} value={`${key} - true`}>
+                <option key={`${key}-true`} value={`${key}-true`}>
                   Sort by '{key}' descending
                 </option>
-                  <option key={`${key} - false`} value={`${key} - false`}>
+                  <option key={`${key}-false`} value={`${key}-false`}>
                   Sort by '{key}' ascending
                 </option>
                 </> 

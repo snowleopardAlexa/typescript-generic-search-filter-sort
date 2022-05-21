@@ -29,8 +29,9 @@ function App() {
         }}
       />
       <h2>Widgets:</h2>
-      <Sorters setProperty={(property) => {
-        setWidgetSortProperty({property})
+      <Sorters 
+        setProperty={(propertyType) => {
+        setWidgetSortProperty(propertyType)
       }} object={widgets[0]} />
       {widgets
         .filter((widget) =>
@@ -44,14 +45,14 @@ function App() {
           return <WidgetRenderer {...widget} />;
         })}
       <h2>People:</h2>
-      <Sorters setProperty={(property) => {
-        setPeopleSortProperty({property})
+      <Sorters setProperty={(propertyType) => {
+        setPeopleSortProperty(propertyType)
       }} object={people[0]} />
       {people
         .filter((person) =>
           genericSearch(person, ["firstName", "lastName"], query, false)
         )
-        .sort((a, b) => genericSort(a, b, peopleSortProperty.property))
+        .sort((a, b) => genericSort(a, b, peopleSortProperty))
         .map((person) => {
           return (
             <h3>
