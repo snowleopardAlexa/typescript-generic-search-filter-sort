@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { SearchInput } from "./components/SearchInput";
+import { Sorters } from "./components/Sorters";
 import IPerson from "./interfaces/IPerson";
 import IProperty from "./interfaces/IProperty";
 import IWidget from "./interfaces/IWidget";
@@ -23,6 +24,7 @@ function App() {
         }}
       />
       <h2>Widgets:</h2>
+      <Sorters object={widgets[0]} />
       {widgets
         .filter((widget) =>
           genericSearch(widget, ["title", "description"], query, false)
@@ -35,6 +37,7 @@ function App() {
           return <h3>{widget.title}</h3>;
         })}
       <h2>People:</h2>
+      <Sorters object={widgets[0]} />
       {people
         .filter((person) =>
           genericSearch(person, ["firstName", "lastName"], query, false)
