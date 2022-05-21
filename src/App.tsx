@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import { PeopleRenderer } from "./components/renderers/PeopleRenderer";
 import { WidgetRenderer } from "./components/renderers/WidgetRenderer";
 import { SearchInput } from "./components/SearchInput";
 import { Sorters } from "./components/Sorters";
@@ -13,11 +14,14 @@ import genericSort from "./utils/genericSort";
 
 function App() {
   const [query, setQuery] = useState<string>("");
-  const [widgetSortProperty, setWidgetSortProperty] = useState<IProperty<IWidget>>({ property: "title" })
-  const [peopleSortProperty, setPeopleSortProperty] = useState<IProperty<IPerson>>({ property: "firstName"})
+  const [showPeople, setShowPeople] = useState<boolean>(false)
+  const [widgetSortProperty, setWidgetSortProperty] = useState<IProperty<IWidget>>({ property: "title", isDescending: true })
+  const [peopleSortProperty, setPeopleSortProperty] = useState<IProperty<IPerson>>({ property: "firstName", isDescending: true})
+  const buttonText = showPeople ? "Show widgets" : "Show people"
 
   return (
     <div className="App">
+      <button className="btn btn-primary" onClick={() => setShowPeople(!showPeople)}>{buttonText}</button>
       <SearchInput
         setSearchQuery={(query) => {
           console.log("I am firing");
@@ -34,7 +38,7 @@ function App() {
         )
         // comparision function 
         .sort((a, b) => 
-          genericSort(a, b, widgetSortProperty.property)
+          genericSort(a, b, widgetSortProperty)
         )
         .map((widget) => {
           return <WidgetRenderer {...widget} />;
@@ -51,11 +55,11 @@ function App() {
         .map((person) => {
           return (
             <h3>
-              {person.firstName} {person.lastName}
+              <PeopleRenderer {...person} />
             </h3>
           );
         })}
-    </div>
+      </div>
   );
 }
 
