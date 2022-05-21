@@ -11,7 +11,7 @@ import genericSort from "./utils/genericSort";
 function App() {
   const [query, setQuery] = useState<string>("");
   const [widgetSortProperty, setWidgetSortProperty] = useState<IProperty<IWidget>>({ property: "title" })
-  const [peopleSortProperty, setPeopleSortProperty] = useState<IProperty<IPeople>>({ property: "people"})
+  const [peopleSortProperty, setPeopleSortProperty] = useState<IProperty<IPerson>>({ property: "firstName"})
 
   return (
     <div className="App">
@@ -28,7 +28,7 @@ function App() {
         )
         // comparision function 
         .sort((a, b) => 
-          genericSort(a, b, property)
+          genericSort(a, b, widgetSortProperty.property)
         )
         .map((widget) => {
           return <h3>{widget.title}</h3>;
@@ -38,6 +38,7 @@ function App() {
         .filter((person) =>
           genericSearch(person, ["firstName", "lastName"], query, false)
         )
+        .sort((a, b) => genericSort(a, b, peopleSortProperty.property))
         .map((person) => {
           return (
             <h3>
